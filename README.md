@@ -9,3 +9,7 @@
   
   if compasion fails we need to find the id of the person for that we will compare the 
   picture with existing_database
+
+The main aim of the project is to monitor the employee from mobile app
+Login Signup app created for new employees to feed their information
+to the database
