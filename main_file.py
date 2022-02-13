@@ -78,12 +78,15 @@ class DBHelper:
             self.con1.commit()
             print("Done Inserting in Employee Table")
 
-    def Pull_Data(self):
-        query = "select * from employee"
+    def Pull_Data(self,userId):
+        query = f"select * from directors where userId={userId}"
         cur = self.con1.cursor()
         cur.execute(query)
-        for row in cur:
-            print(row)
+        result = cur.fetchall()
+        for i in result:
+            return i[0],i[1],i[2],i[3],i[4]
+
+
 
 
 """
@@ -102,13 +105,14 @@ class PushHelper:
                                       database='monitoring_database')
         #
         # print(con2)
-        query4 = 'create table if not exists monitoring_record(userId int primary key,Dname varchar(20) NOT NULL,' \
+        query4 = 'create table if not exists monitoring_record(userId int,Dname varchar(20) NOT NULL,' \
                  'contact varchar(10) NOT NULL,email varchar(40) NOT NULL, officeNo int NOT NULL,' \
-                 ' Access varchar(3))'
+                 'Access char)'
 
         cur = self.con2.cursor()
         cur.execute(query4)
         print('Created')
+
 
 """
 Initialing the database and creating required tables
@@ -149,8 +153,9 @@ helper.insert_access_table(9,"Rohit Bhati",9)
 """
 This method will help us fetch the data from
 the existing_database to compare
-"""
-helper.Pull_Data()
+# """
+one,two,three,four,five = helper.Pull_Data(1)
+print(one,two)
 
 
 
