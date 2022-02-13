@@ -20,8 +20,8 @@ class DBHelper:
                  ' photo varchar(50) NOT NULL,start_time int NULL, end_time int NOT NULL)'
 
         query2 = 'create table if not exists employee(userId int primary key,Dname varchar(20) NOT NULL,' \
-                 'contact varchar(10) NOT NULL,email varchar(40) NOT NULL,officeNo int NOT NULL,a' \
-                 ' photo varchar(50) NOT NULL,start_time int NULL, end_time int NOT NULL)'
+                 'contact varchar(10) NOT NULL,email varchar(40) NOT NULL,officeNo int NOT NULL,' \
+                 'photo varchar(50) NOT NULL,start_time int NULL, end_time int NOT NULL)'
 
         query3 = 'create table if not exists access_table(userId int,Dname varchar(20) NOT NULL,' \
                  'roomNo int NOT NULL,' \
