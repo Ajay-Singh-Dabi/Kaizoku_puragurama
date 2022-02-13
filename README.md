@@ -4,6 +4,10 @@ Please refer to this Readme file
 for the solution the main files are main_file.py, employee_faces.py, and employee_detection.py
 and for the database mysql is used
 
+**fetch the main_file.py, employee_faces.py, and employee_detection.py files and create databases first
+i.e existing_database and monitoring_database and then insert your information to coonect to mySQL server
+and then run employee_detection.py file**
+
 1-First the database is created for both existing and monitoring data
 2-mySQL is being used.
 3-we will process the data by the use of comparison
