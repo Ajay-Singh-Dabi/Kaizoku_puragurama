@@ -5,7 +5,7 @@ import datetime
 now_time  = datetime.datetime.now()
 import main_file
 from employee_faces import EmployeesFacesList
-
+#
 con = connector.connect(host='localhost',
                         port='3306',
                         user='root',
@@ -39,6 +39,7 @@ def push_in_monitor(User_Id, User_Name, Contact, email, office_no, Access):
 
 get_id = 10000
 flag = True
+b = True
 
 # we are getting the live feed from the door cameras
 capture = cv2.VideoCapture(0)
@@ -81,6 +82,7 @@ while True:
             if i[0] == emp_id:
                 push_in_monitor(emp_id, emp_name, emp_contact, emp_email, emp_office, 'Y')
                 print("Access Granted")
+                b=False
                 continue
 
         query3 = f"select roomNo from access_table where userId = {emp_id}"
@@ -94,7 +96,7 @@ while True:
         cur2.execute(query2)
         ids1 = cur2.fetchall()
         for i in ids:
-            if i[0] == emp_id:
+            if (i[0] == emp_id and b == True):
                 push_in_monitor(emp_id, emp_name, emp_contact, emp_email, emp_office, 'N')
                 wkt.sendwhatmsg(f"+91{emp_contact}", f"Greetings,{emp_name}"
                                                      f"Your office number {emp_office}"
@@ -103,6 +105,7 @@ while True:
                                                      f"please return to your work",
                                                      now_time.hour,
                                                      now_time.minute+1)
+                b=False
 
         flag = False
 
@@ -112,7 +115,7 @@ while True:
     if key == 27:
         break
 
-# capture.release()
-# cv2.destroyAllWindows()
+capture.release()
+cv2.destroyAllWindows()
 
 print(get_id)
