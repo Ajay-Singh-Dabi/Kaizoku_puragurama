@@ -21,7 +21,6 @@ and then run employee_detection.py file**
 The main aim of the project is to monitor the employee from mobile app
 Login Signup app created for new employees to feed their information
 to the database
-![Screenshot (1239)](https://user-images.githubusercontent.com/93148465/153740138-801bac99-9e72-4765-bb83-bc9c59eadae4.png)
 ![Screenshot (1242)](https://user-images.githubusercontent.com/93148465/153740142-d8249f62-4f42-4892-9967-6a82d9e032a6.png)
 
 ###As we can see face_recognition works completely fine and it is giving us the name and userId
